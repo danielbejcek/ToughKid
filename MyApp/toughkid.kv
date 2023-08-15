@@ -1,0 +1,241 @@
+WindowManager:
+    FirstPageLayout:
+    SecondPageLayout:
+    ThirdPageLayout:
+
+<FirstPageLayout>:
+    name: "First"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "Images/badboy_new.png"
+    BoxLayout:
+        orientation: "vertical"
+        id: BL1
+        padding: (100,100)
+        spacing: 50
+        size_hint: (1,.5)
+        Button:
+            id: btn1
+            text: "Browse Sidur"
+            font_size: 25
+            font_name: 'BrunoAceSC-Regular.ttf'
+            pos_hint: {"center_x": .5, "center_y": 1}
+            size_hint: (1,.4)
+            on_release:
+                root.month_list()
+                root.remove_btn1(btn1)
+
+    BoxLayout:
+        size_hint: (1,1)
+        Label:
+            text: "Property of Daniel Bejček. Ver: 1.2"
+            font_name: 'BrunoAceSC-Regular.ttf'
+            font_size: 25
+            color: (.5, .5, .5, 1)
+            size_hint: (.1,.1)
+    GridLayout:
+        orientation: "rl-tb"
+        id: GLM
+        padding: (10,10)
+        spacing: 5
+        size_hint: .5, .85
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        cols: 1
+
+
+
+<SecondPageLayout>:
+    name: "Second"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "Images/badboy_new.png"
+
+
+    StackLayout:
+        orientation: "lr-tb"
+        id: SL2
+        padding: (10,10)
+        spacing: 10
+        size_hint: (1,1)
+        Button:
+            id: backbtn
+            text: "Back"
+            font_name: 'BrunoAceSC-Regular.ttf'
+            pos_hint: {"center_x": .5, "center_y": .1}
+            size_hint: (.3,.1)
+            on_release:
+                root.manager.transition.direction = 'right'
+                root.manager.current = "First"
+                root.remove_btn_flight()
+                root.enable_btn()
+        Button:
+            id: btn2
+            text: "Show flights"
+            font_name: 'BrunoAceSC-Regular.ttf'
+            pos_hint: {"center_x": .5, "center_y": 1}
+            size_hint: (.4,.1)
+            on_release:
+                root.flight_list()
+                root.disable_btn()
+
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+            scroll_type: ["content"]
+            size_hint: (1, 0.90)
+
+
+            BoxLayout:
+                orientation: "vertical"
+                id: SL3
+                padding: (0,20)
+                spacing: 25
+                size_hint: (1,None)
+
+
+
+<ThirdPageLayout>:
+    name: "Third"
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "Images/badboy_darkend_second.jpg"
+
+    GridLayout:
+        orientation: "rl-tb"
+        id: GL4
+        padding: (5,0)
+        spacing: 5
+        size_hint: .3,.8
+        pos_hint: {'center_x': .85, 'center_y': .48}
+        cols: 1
+
+
+
+
+    GridLayout:
+        id: GL1
+        orientation: "lr-tb"
+        size_hint: .7, .885
+        spacing: 0
+        padding: (1,5)
+        cols: 2
+
+
+        BoxLayout:
+            id: BL2
+            orientation: "vertical"
+            size_hint: .5, .85
+            spacing: 0
+            padding: (1,5)
+            canvas.after:
+                Color:
+                    rgba: (.5,.5,.5,1)
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+
+
+        BoxLayout:
+            id: BL3
+            orientation: "vertical"
+            size_hint: .5, 1
+            spacing: 0
+            padding: (0,0)
+            canvas.after:
+                Color:
+                    rgba: (.5,.5,.5,1)
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+
+    StackLayout:
+        orientation: "lr-tb"
+        id: SL5
+        padding: (10,10)
+        spacing: 10
+        size_hint: 1, 1
+        Button:
+            id: backbtn
+            text: "Back"
+            font_name: 'BrunoAceSC-Regular.ttf'
+            size_hint: (.2,.1)
+            on_release:
+                root.remove_btns()
+                root.manager.transition.direction = 'right'
+                root.manager.current = "Second"
+    StackLayout:
+        orientation: "rl-tb"
+        id: SL5
+        padding: (10,10)
+        spacing: 10
+        size_hint: 1, 1
+
+        Button:
+            id: finalbtn
+            text: "Final"
+            font_name: 'BrunoAceSC-Regular.ttf'
+            size_hint: (.2,.1)
+            on_release:
+                root.final_employee_names()
+                root.manager.transition.direction = 'left'
+                root.manager.current = "Final"
+
+    BoxLayout:
+        orientation: "vertical"
+        id: BL4
+        padding: (10,10)
+        spacing: 10
+        size_hint: 1, 1.87
+
+<FinalScreen>:
+    name: "Final"
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "Images/badboy_darkend_third.png"
+
+    GridLayout:
+        id: GL5
+        orientation: "lr-tb"
+        size_hint: 1, 1
+        spacing: 0
+        cols: 2
+
+        BoxLayout:
+            id: BL5
+            orientation: "vertical"
+            size_hint: .5, 1
+            spacing: 0
+            padding: (1,5)
+            canvas.before:
+                Color:
+                    rgba: (.5,.5,.5,1)
+                Line:
+                    width: 3
+                    rectangle: self.x, self.y, self.width, self.height
+
+        BoxLayout:
+            id: BL6
+            orientation: "vertical"
+            size_hint: .5, 1
+            spacing: 0
+            padding: (0,5)
+            canvas.before:
+                Color:
+                    rgba: (.5,.5,.5,1)
+                Line:
+                    width: 3
+                    rectangle: self.x, self.y, self.width, self.height
+
+
+
+
+
+
