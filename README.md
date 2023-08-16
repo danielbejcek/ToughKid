@@ -16,5 +16,5 @@ This small application will make their lives easier, everything is combine into 
 This App pulls data from Google Sheets table automatically and allows the user the fill the table without the need to verify,
 if the employee in-fact works that day.
 
-Along this long process of creating this app, I have been using getting alot of help, mainly from Stack Overflow, Youtube, Github and google overall.
+Along this long process of creating this app, I have been getting alot of help, mainly from Stack Overflow, Youtube, Github and google overall.
 This app is then finalized and complied trough usage of Buildozer and Windows Subsystem for Linux.
